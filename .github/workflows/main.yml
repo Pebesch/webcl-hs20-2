@@ -41,9 +41,3 @@ jobs:
           source_dir: ./week3
           # Output folder for the generated documentation
           output_dir: ./out
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          deploy_key: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
