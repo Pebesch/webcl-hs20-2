@@ -17,7 +17,7 @@ const fortunes = [
 
 /**
  * Method simulates asynchronous behaviour to deliver a random fortune
- * @param whenDone callback function that executes when timeout completed
+ * @param whenDone callback function that executes when timeout completed 
  */
 function fortuneService(whenDone) {
     setTimeout(
