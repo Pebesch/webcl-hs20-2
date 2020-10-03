@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: todo/fortuneService.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,44 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: todo/fortuneService.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// stand-in for an asynchronous service
 
+export { fortuneService }
 
-    <h3> </h3>
+/**
+ * Array of strings that represent possible To-Do's
+ * @type {string[]} possible To-Do items
+ * @see {@link https://github.com/getify/You-Dont-Know-JS} for the free version of You-dont-know-JS
+ */
+const fortunes = [
+    "Do the WebPr Homework",
+    "Care for the JavaScript Toolbox",
+    "Watch the recommended videos",
+    "Read the recommended chapters in You-dont-know-JS",
+    "Do the dataflow excel challenge!"
+];
 
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+/**
+ * Method simulates asynchronous behaviour to deliver a random fortune
+ * @param whenDone callback function that executes when timeout completed
+ */
+function fortuneService(whenDone) {
+    setTimeout(
+        () => whenDone(fortunes[Math.floor((Math.random() * fortunes.length))]),
+        Math.floor((Math.random() * 3000))
+    );
+}</code></pre>
+        </article>
+    </section>
 
 
 
