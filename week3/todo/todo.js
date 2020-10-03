@@ -8,7 +8,7 @@ export { TodoController, TodoItemsView, TodoTotalView, TodoOpenView}
 
 /**
  *
- * @returns {{removeTodo: del, onTodoRemove: ((function(*=): number)|onDel), numberOfopenTasks: (function(): *), addFortuneTodo: addFortuneTodo, numberOfTodos: ((function(): *)|count), removeTodoRemoveListener: (function(...[*]=)), onTodoAdd: ((function(*=): number)|onAdd), addTodo: (function(): {onTextChanged, getDone: ((function(): *)|getValue), getText: ((function(): *)|getValue), onTextEditableChanged, onTextValidChanged, setDone: setValue, onDoneChanged: onChange, setText})}}
+ * @returns {object} API of TodoController
  * @constructor
  */
 const TodoController = () => {

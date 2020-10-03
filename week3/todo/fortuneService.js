@@ -2,6 +2,11 @@
 
 export { fortuneService }
 
+/**
+ * Array of strings that represent possible To-Do's
+ * @type {string[]} possible To-Do items
+ * @see {@link https://github.com/getify/You-Dont-Know-JS} for the free version of You-dont-know-JS
+ */
 const fortunes = [
     "Do the WebPr Homework",
     "Care for the JavaScript Toolbox",
@@ -10,6 +15,10 @@ const fortunes = [
     "Do the dataflow excel challenge!"
 ];
 
+/**
+ * Method simulates asynchronous behaviour to deliver a random fortune
+ * @param whenDone callback function that executes when timeout completed
+ */
 function fortuneService(whenDone) {
     setTimeout(
         () => whenDone(fortunes[Math.floor((Math.random() * fortunes.length))]),
