@@ -38,6 +38,6 @@ jobs:
         uses: andstor/jsdoc-action@v1.2.0
         with:
           # Source directory to build documentation from
-          source_dir: ./
+          source_dir: ./week3/observable
           # Output folder for the generated documentation
           output_dir: ./out
