@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: todo/fortuneService.js</title>
+    <title>JSDoc: Class: Scheduler</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,45 +17,159 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: todo/fortuneService.js</h1>
+    <h1 class="page-title">Class: Scheduler</h1>
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>// stand-in for an asynchronous service
+        <h2><span class="attribs"><span class="type-signature"></span></span>Scheduler<span class="signature">()</span><span class="type-signature"> &rarr; {object}</span></h2>
+        
+    
+</header>
 
-export { fortuneService }
+<article>
+    <div class="container-overview">
+    
+        
 
-/**
- * Array of strings that represent possible To-Do's
- * @type {string[]} possible To-Do items
- * @see {@link https://github.com/getify/You-Dont-Know-JS} for the free version of You-dont-know-JS
- */
-const fortunes = [
-    "Do the WebPr Homework",
-    "Care for the JavaScript Toolbox",
-    "Watch the recommended videos",
-    "Read the recommended chapters in You-dont-know-JS",
-    "Do the dataflow excel challenge!"
-];
+    
 
-/**
- * Method simulates asynchronous behaviour to deliver a random fortune
- * @async function pretends to be asynchronous
- * @param whenDone callback function that executes when timeout completed 
- */
-function fortuneService(whenDone) {
-    setTimeout(
-        () => whenDone(fortunes[Math.floor((Math.random() * fortunes.length))]),
-        Math.floor((Math.random() * 3000))
-    );
-}</code></pre>
-        </article>
-    </section>
+    
+    <h4 class="name" id="Scheduler"><span class="type-signature"></span>new Scheduler<span class="signature">()</span><span class="type-signature"> &rarr; {object}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    execute asynchronous tasks in strict sequence
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="dataflow_dataflow.js.html">dataflow/dataflow.js</a>, <a href="dataflow_dataflow.js.html#line20">line 20</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    returns the API
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

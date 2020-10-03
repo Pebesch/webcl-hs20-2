@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: Observable</title>
+    <title>JSDoc: Class: TodoTotalView</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: Observable</h1>
+    <h1 class="page-title">Class: TodoTotalView</h1>
 
     
 
@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>Observable<span class="signature">(value)</span><span class="type-signature"> &rarr; {object}</span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>TodoTotalView<span class="signature">(todoController, numberOfTasksElement)</span><span class="type-signature"></span></h2>
         
     
 </header>
@@ -41,7 +41,7 @@
     
 
     
-    <h4 class="name" id="Observable"><span class="type-signature"></span>new Observable<span class="signature">(value)</span><span class="type-signature"> &rarr; {object}</span></h4>
+    <h4 class="name" id="TodoTotalView"><span class="type-signature"></span>new TodoTotalView<span class="signature">(todoController, numberOfTasksElement)</span><span class="type-signature"></span></h4>
     
 
     
@@ -49,7 +49,7 @@
 
 
 <div class="description">
-    Represents the Observable interface
+    View to display the current To-Do count
 </div>
 
 
@@ -85,13 +85,31 @@
 
         <tr>
             
-                <td class="name"><code>value</code></td>
+                <td class="name"><code>todoController</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Controller for this view</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>numberOfTasksElement</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">*</span>
+<span class="param-type">number</span>
 
 
             
@@ -101,7 +119,7 @@
 
             
 
-            <td class="description last">the observed value</td>
+            <td class="description last">current number of all To-Do's</td>
         </tr>
 
     
@@ -142,53 +160,38 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="observable_observable.js.html">observable/observable.js</a>, <a href="observable_observable.js.html#line4">line 4</a>
+        <a href="todo_todo.js.html">todo/todo.js</a>, <a href="todo_todo.js.html#line124">line 124</a>
     </li></ul></dd>
     
 
     
 
     
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    returns the API
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">object</span>
-
-
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>{To-Do} for more information</li>
+        </ul>
     </dd>
-</dl>
+    
 
     
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

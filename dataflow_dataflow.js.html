@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: todo/fortuneService.js</title>
+    <title>JSDoc: Source: dataflow/dataflow.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: todo/fortuneService.js</h1>
+    <h1 class="page-title">Source: dataflow/dataflow.js</h1>
 
     
 
@@ -26,34 +26,49 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>// stand-in for an asynchronous service
+            <pre class="prettyprint source linenums"><code>
+// a dataflow abstraction that is not based on concurrency but on laziness
 
-export { fortuneService }
+export { DataFlowVariable, Scheduler }
 
-/**
- * Array of strings that represent possible To-Do's
- * @type {string[]} possible To-Do items
- * @see {@link https://github.com/getify/You-Dont-Know-JS} for the free version of You-dont-know-JS
- */
-const fortunes = [
-    "Do the WebPr Homework",
-    "Care for the JavaScript Toolbox",
-    "Watch the recommended videos",
-    "Read the recommended chapters in You-dont-know-JS",
-    "Do the dataflow excel challenge!"
-];
+const DataFlowVariable = howto => {
+    let value = undefined;
+    return () => {
+        if (value !== undefined) { return value }
+        value = howto();
+        return value;
+    }
+};
 
 /**
- * Method simulates asynchronous behaviour to deliver a random fortune
- * @async function pretends to be asynchronous
- * @param whenDone callback function that executes when timeout completed 
+ * execute asynchronous tasks in strict sequence
+ * @returns {object} returns the API
+ * @constructor
  */
-function fortuneService(whenDone) {
-    setTimeout(
-        () => whenDone(fortunes[Math.floor((Math.random() * fortunes.length))]),
-        Math.floor((Math.random() * 3000))
-    );
-}</code></pre>
+const Scheduler = () => {
+    let inProcess = false;
+    const tasks = [];
+    function process() {
+        if (inProcess) return;
+        if (tasks.length === 0) return;
+        inProcess = true;
+        const task = tasks.pop();
+        const prom = new Promise( (ok, reject) => task(ok) );
+        prom.then( _ => {
+            inProcess = false;
+            process();
+        });
+    }
+    function add(task) {
+        tasks.unshift(task);
+        process();
+    }
+    return {
+        add: add,
+        addOk: task => add( ok => { task(); ok(); }) // convenience
+    }
+};
+</code></pre>
         </article>
     </section>
 

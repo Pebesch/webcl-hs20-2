@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Global</title>
+    <title>JSDoc: Class: TodoItemsView</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Global</h1>
+    <h1 class="page-title">Class: TodoItemsView</h1>
 
     
 
@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>TodoItemsView<span class="signature">(todoController, rootElement)</span><span class="type-signature"></span></h2>
         
     
 </header>
@@ -38,156 +38,10 @@
     
         
 
-        
-
-
-<dl class="details">
-
     
 
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<h4 class="name" id="fortunes"><span class="type-signature">(constant) </span>fortunes<span class="type-signature"> :Array.&lt;string></span></h4>
-
-
-
-
-<div class="description">
-    Array of strings that represent possible To-Do's
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">Array.&lt;string></span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="todo_fortuneService.js.html">todo/fortuneService.js</a>, <a href="todo_fortuneService.js.html#line10">line 10</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a href="https://github.com/getify/You-Dont-Know-JS">https://github.com/getify/You-Dont-Know-JS</a> for the free version of You-dont-know-JS</li>
-        </ul>
-    </dd>
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="fortuneService"><span class="type-signature">(async) </span>fortuneService<span class="signature">(whenDone)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="TodoItemsView"><span class="type-signature"></span>new TodoItemsView<span class="signature">(todoController, rootElement)</span><span class="type-signature"></span></h4>
     
 
     
@@ -195,7 +49,7 @@
 
 
 <div class="description">
-    Method simulates asynchronous behaviour to deliver a random fortune
+    View returns all To-Do's
 </div>
 
 
@@ -231,7 +85,7 @@
 
         <tr>
             
-                <td class="name"><code>whenDone</code></td>
+                <td class="name"><code>todoController</code></td>
             
 
             <td class="type">
@@ -242,7 +96,30 @@
 
             
 
-            <td class="description last">callback function that executes when timeout completed</td>
+            <td class="description last">Controller for this view</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>rootElement</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">HTMLElement</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the root element where the view should be placed</td>
         </tr>
 
     
@@ -283,7 +160,171 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="todo_fortuneService.js.html">todo/fortuneService.js</a>, <a href="todo_fortuneService.js.html#line23">line 23</a>
+        <a href="todo_todo.js.html">todo/todo.js</a>, <a href="todo_todo.js.html#line102">line 102</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>{To-Do} for more information</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~render"><span class="type-signature">(inner) </span>render<span class="signature">(todo)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Render function for the view
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>todo</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="To-Do.html">To-Do</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">renders a To-Do</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="todo_todo.js.html">todo/todo.js</a>, <a href="todo_todo.js.html#line108">line 108</a>
     </li></ul></dd>
     
 
