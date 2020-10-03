@@ -38,6 +38,13 @@ jobs:
         uses: andstor/jsdoc-action@v1.2.0
         with:
           # Source directory to build documentation from
-          source_dir: ./week3/observable
+          source_dir: ./week3
+          recurse: true
           # Output folder for the generated documentation
-          output_dir: ./docs
+          output_dir: ./out
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
