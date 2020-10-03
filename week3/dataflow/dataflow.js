@@ -12,7 +12,11 @@ const DataFlowVariable = howto => {
     }
 };
 
-// execute asynchronous tasks in strict sequence
+/**
+ * execute asynchronous tasks in strict sequence
+ * @returns {object} returns the API
+ * @constructor
+ */
 const Scheduler = () => {
     let inProcess = false;
     const tasks = [];

@@ -1,0 +1,86 @@
+JSDoc Presentation
+---------------------------
+
+1) Insert JSDoc Annotations in Todo Frameworks
+2) Add HTML/PDF as Refcard (most important Annotations,
+   how to include in Intellij/Eclipse/VSCode)
+
+
+Installation Steps:
+1) Initialize node.js project
+
+
+1) Installation (Martin)
+------------------------------------------------------------------------
+- Local (advantage less conflicts with other versions)
+  - Requires a local node project: '<path>/<to>/<js files> $ node init'
+  - Creates 'node_modules' directory
+  - <path>/<to>/<js_files> $ npm install [--save-dev] jsdoc
+  - Add annotations to JS files
+  - <path>/<to>/<js_files> $ ./node_modules/.bin/jsdoc helloWorld.js
+  - Creates './out' directory with JSDoc HTML files
+[-> show on command line]
+$ <directory>/<where>/<html>/<is> $ python -m http.server 7900
+
+
+- Global (no node project needed and executable from everywhere)
+  - <HOME> $ npm install -g jsdoc
+  - Add annotations to JS files
+  - <path>/<to>/<js_files> $ jsdoc helloWorld.js
+  - Creates './out' directory with JSDoc HTML files
+
+
+
+2) Annotations Examples (Peter) (see https://devhints.io/jsdoc)
+------------------------------------------------------------------------
+[see https://devhints.io/jsdoc]
+
+/** This is a function description */
+let functionWithOneArgument = function(a) {
+    console.log(a+a);
+}
+
+/**
+ * This is a function.
+ *
+ * @param {string} n - A string param
+ * @return {string} A good string
+ *
+ * @example
+ *
+ *     foo('hello')
+ */
+
+function foo(n) {
+  return n
+}
+
+/**
+ * @type {number}
+ */
+var FOO = 1
+
+
+/**
+ * @throws {FooException}
+ * @private
+ * @deprecated
+ * @see
+ *
+ * @function
+ * @class
+ */
+
+
+
+
+3) Integration in IDEs:
+------------------------------------------------------------------------
+- IntelliJ:
+  - Should be there by default
+  - Type '/**' + <ENTER> --> Should comlete the JSDoc stub       
+
+- Github:
+  - In 'Actions' section, add JSDoc action to main.yml file
+
+

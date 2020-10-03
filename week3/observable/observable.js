@@ -3,8 +3,9 @@ export {Observable, ObservableList}
 
 /**
  * Represents the Observable interface
+ * @interface Observable interface
  * @typedef {Object} Observable
- * @param value the observed value
+ * @param {*} value the observed value
  * @returns {object} returns the API
  * @constructor
  */
