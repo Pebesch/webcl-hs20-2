@@ -1,6 +1,13 @@
 
 export {Observable, ObservableList}
 
+/**
+ * Represents the Observable interface
+ * @typedef {Object} Observable
+ * @param value the observed value
+ * @returns {object} returns the API
+ * @constructor
+ */
 const Observable = value => {
     const listeners = [];
     return {
@@ -18,7 +25,13 @@ const Observable = value => {
     }
 };
 
-
+/**
+ *
+ * @param list of classes that implement the Observable interface
+ * @see {@link Observable} for more information
+ * @returns {object} returns the API
+ * @constructor
+ */
 const ObservableList = list => {
     const addListeners = [];
     const delListeners = [];
