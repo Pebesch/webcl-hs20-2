@@ -40,4 +40,4 @@ jobs:
           # Source directory to build documentation from
           source_dir: ./week3/observable
           # Output folder for the generated documentation
-          output_dir: ./out
+          output_dir: ./docs
