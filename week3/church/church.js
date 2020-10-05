@@ -12,6 +12,11 @@ export {
 }
 
 // function id(x) { return x; }, \x.x
+/**
+ * TODO document this
+ * @param {T} x
+ * @returns {T}
+ */
 const id = x => x;
 
 // function application, beta reduction

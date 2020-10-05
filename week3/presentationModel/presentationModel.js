@@ -8,14 +8,14 @@ export { Attribute,
 const VALUE = "value";
 const VALID = "valid";
 
-
 /**
+ *
  * The Attribute class has a list of Observable objects and validates them against a validator
  * @class that implements the Observable interface
  * @typedef {Object} Attribute
  * @param {*} value to be observed and validated
- * @returns {object} API of the Attribute class
- * @see Observable
+ * @returns {{setConvertedValue: (function(*=): undefined), getObs: (function(*=, *=): *), hasObs: (function(*=): boolean), setConverter: function, setValidator: (function(*): void)}}
+ * @see Observable for more information
  * @constructor
  */
 const Attribute = value => {

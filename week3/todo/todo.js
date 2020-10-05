@@ -14,11 +14,8 @@ export { TodoController, TodoItemsView, TodoTotalView, TodoOpenView}
 const TodoController = () => {
 
     /**
-     * Internal To-Do class. Single class representation of the model observed in this project
-     * @inner Class is not exposed in the API
-     * @class Class represents a single To-Do
-     * @typedef {Object} To-Do
-     * @returns {object} API of the To-Do class
+     *
+     * @returns {{onTextChanged: onChange, getDone: (function(): Observable), getText: (function(): Observable), onTextEditableChanged: onChange, onTextValidChanged: onChange, setDone: setValue, onDoneChanged: onChange, setText: (function(*=): undefined)}}
      * @constructor
      */
     const Todo = () => {                               // facade
