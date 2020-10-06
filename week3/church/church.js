@@ -13,9 +13,9 @@ export {
 
 // function id(x) { return x; }, \x.x
 /**
- * TODO document this
- * @param {T} x
- * @returns {T}
+ * Returns the Input
+ * @param {T} x input of any type
+ * @returns {T} x of the same type
  */
 const id = x => x;
 
