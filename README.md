@@ -97,6 +97,11 @@ Runar Bjornasson: liberties constrain, constraints liberate
 https://www.youtube.com/watch?v=GqmsQeSzMdw
 
 ---
+webcl week 6 UI/UX homework
+
+https://tube.switch.ch/videos/8b06c586
+
+---
 
 **Thema: Attribute projector / MVC**
 
