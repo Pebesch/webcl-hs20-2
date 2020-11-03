@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View</title>
+
+    <style>
+        body {
+            margin: 0;
+            box-sizing: border-box;
+            width:  100%;
+            height: 100%;
+        }
+        svg {
+            width:  100px;
+            height: 80px;
+            position: absolute;
+        }
+        #leftEye {
+            top:  100px;
+            left: 100px;
+        }
+        #rightEye {
+            top:  100px;
+            left: 250px;
+        }
+        .animation {
+            transition: all 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+
+<h1 style="margin-left: 3em;">I see where you go...</h1>
+
+<div id="main"></div>
+
+<script>
+
+    const eyeView = id => `
+    <svg id="${id}" viewBox="0 0 120 120">
+
+      <filter id="shadow" height="200%">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+        <feOffset       dx="0" dy="8" />
+        <feColorMatrix  type="matrix"
+                        values="0 0 0 0  0
+                                0 0 0 0  0
+                                0 0 0 0  0
+                                0 0 0 .5 0"/>
+        <feBlend        in="SourceGraphic" mode="normal"/>
+      </filter>
+
+      <radialGradient id="gradient1" gradientUnits="objectBoundingBox" cx="50%" cy="50%" r="50%">
+        <stop offset= "38%" stop-color="#000000" stop-opacity="1" />
+        <stop offset= "46%" stop-color="#073F80" stop-opacity="1" />
+        <stop offset= "90%" stop-color="#8EC0DD" stop-opacity="1" />
+        <stop offset="100%" stop-color="#2F3A46" stop-opacity="1" />
+      </radialGradient>
+      <g id="${id}_iris">
+        <ellipse cx="60" cy="60" rx="30" ry="30" opacity="1" fill="url(#gradient1)" />
+        <ellipse cx="50" cy="50" rx="7"  ry="7"  opacity="1" fill="#FFFFFF" fill-opacity="0.8"/>
+      </g>
+      <g id="${id}_openLids">
+        <path d="M0 60 A60,60 0 0,1 120,60 A60,30 0 0,0 0,60 Z" opacity="1" fill="#FDDC99" fill-opacity="1" filter="url(#shadow)" >
+            <animate id="${id}_blink" attributeName="d"
+            keyTimes="0; 0.2; 0.2; 0.4; 0.6; 0.8; 0.8; 1"
+            values="
+                M0 60 A60,60 0 0,1 120,60 A60,30 0 0,0 0,60 Z;
+                M0 60 A60,60 0 0,1 120,60 A60,00 0 0,0 0,60 Z;
+                M0 60 A60,60 0 0,1 120,60 A60,00 0 0,1 0,60 Z;
+                M0 60 A60,60 0 0,1 120,60 A60,40 0 0,1 0,60 Z;
+                M0 60 A60,60 0 0,1 120,60 A60,40 0 0,1 0,60 Z;
+                M0 60 A60,60 0 0,1 120,60 A60,00 0 0,1 0,60 Z;
+                M0 60 A60,60 0 0,1 120,60 A60,00 0 0,0 0,60 Z;
+                M0 60 A60,60 0 0,1 120,60 A60,30 0 0,0 0,60 Z;
+            " dur="0.5s" begin="indefinite" />
+
+            <animate id="${id}_squint_top" attributeName="d"
+            keyTimes="0; 0.2; 0.8; 1"
+            values="
+                M0 60 A60,60 0 0,1 120,60 A60,30 0 0,0 0,60 Z;
+                M0 60 A60,60 0 0,1 120,60 A60,14 0 0,0 0,60 Z;
+                M0 60 A60,60 0 0,1 120,60 A60,14 0 0,0 0,60 Z;
+                M0 60 A60,60 0 0,1 120,60 A60,30 0 0,0 0,60 Z;
+            " dur="2.3s" begin="indefinite" />
+
+            <animate id="${id}_open_top" attributeName="d"
+            keyTimes="0; 0.2; 0.8; 1"
+            values="
+                M0 60 A60,60 0 0,1 120,60 A60,30 0 0,0 0,60 Z;
+                M0 60 A60,60 0 0,1 120,60 A60,50 0 0,0 0,60 Z;
+                M0 60 A60,60 0 0,1 120,60 A60,50 0 0,0 0,60 Z;
+                M0 60 A60,60 0 0,1 120,60 A60,30 0 0,0 0,60 Z;
+            " dur="2.3" begin="indefinite" />
+        </path>
+
+        <path d="M0 60 A60,60 0 0,0 120,60 A60,40 0 0,1 0,60 Z" opacity="1" fill="#F4CB76" fill-opacity="1">
+            <animate id="${id}_squint_bottom" attributeName="d"
+            keyTimes="0; 0.2; 0.8; 1"
+                values="
+                    M0 60 A60,60 0 0,0 120,60 A60,40 0 0,1 0,60 Z;
+                    M0 60 A60,60 0 0,0 120,60 A60,14 0 0,1 0,60 Z;
+                    M0 60 A60,60 0 0,0 120,60 A60,14 0 0,1 0,60 Z;
+                    M0 60 A60,60 0 0,0 120,60 A60,40 0 0,1 0,60 Z;
+                " dur="2.3s" begin="indefinite" />
+
+            <animate id="${id}_open_bottom" attributeName="d"
+            keyTimes="0; 0.2; 0.8; 1"
+                values="
+                    M0 60 A60,60 0 0,0 120,60 A60,40 0 0,1 0,60 Z;
+                    M0 60 A60,60 0 0,0 120,60 A60,50 0 0,1 0,60 Z;
+                    M0 60 A60,60 0 0,0 120,60 A60,50 0 0,1 0,60 Z;
+                    M0 60 A60,60 0 0,0 120,60 A60,40 0 0,1 0,60 Z;
+                " dur="2.3s" begin="indefinite" />
+        </path>
+      </g>
+      <g id="${id}_closeLid">
+        <path d="M0 60 A60,60 0 0,1 120,60 A60,40 0 0,1 0,60 Z" opacity="1" fill="#FDDC99" fill-opacity="1" />
+      </g>
+    </svg>
+    `;
+
+    document.writeln(eyeView('leftEye'));
+    document.writeln(eyeView('rightEye'));
+
+    const v  = 14; // versatz - Abstand des Pupillenzentrums vom Augenzentrum in SVG units
+    let   eyesMoveLocked = false;
+    let   duration = 1;
+
+    const eyeBinding = eyeId => {
+        const rect          = document.querySelectorAll(eyeId + "_iris ellipse")[0].getBoundingClientRect();
+        const iris          = document.querySelector(eyeId + "_iris");
+        const closeLidLayer = document.querySelector(eyeId + "_closeLid");
+        closeLidLayer.style.opacity = 0;
+
+        const xo = rect.x + rect.width/2;  // x-origin
+        const yo = rect.y + rect.height/2; // y-origin
+
+        return evt => {
+            if(!eyesMoveLocked) {
+                const xm = evt.clientX - xo; // the normalized x/y coords to work with
+                const ym = evt.clientY - yo;
+
+                const xmax = rect.width / 1.5;
+                const ymax = rect.height / 2;
+
+                const widestFocus = 400; // when x is so far away, the eye is maximal extended
+                const scaledX = xm * (xmax / widestFocus);
+                let xe = xm > 0
+                    ? Math.min(xmax, scaledX)
+                    : Math.max(-xmax, scaledX);
+                const scaledY = ym * (ymax / widestFocus);
+                let ye = ym > 0
+                    ? Math.min(ymax, scaledY)
+                    : Math.max(-ymax, scaledY);
+                if (xe * xe + ye * ye > xmax * ymax) {
+                    xe *= 0.9;
+                    ye *= 0.9;
+                }
+                iris.style.transform = `translateX(${xe}px) translateY(${ye}px)`;
+            }
+        }
+    };
+
+    const prepareAnimation= _ => {
+        eyesMoveLocked = true;
+        leftEye_iris.classList.add('animation');
+        rightEye_iris.classList.add('animation');
+    }
+
+    const cleanupAnimation= _ => {
+        window.setTimeout(_ => {
+            eyesMoveLocked = false;
+            leftEye_iris.classList.remove('animation');
+            rightEye_iris.classList.remove('animation');
+        }, 600*duration);
+    }
+
+    const eyesBackAndForth = _ => {
+        prepareAnimation();
+        const rect = leftEye.getBoundingClientRect();
+        const xe1  = -rect.width/2+26;
+        const xe2  = rect.width/2-26;
+
+        leftEye_iris.style.transform  = `translateX(${xe1}px) translateY(0)`;
+        rightEye_iris.style.transform = `translateX(${xe1}px) translateY(0)`;
+
+        window.setTimeout(_ => {
+            leftEye_iris.style.transform  = `translateX(${xe2}px) translateY(0)`;
+            rightEye_iris.style.transform = `translateX(${xe2}px) translateY(0)`;
+        }, 950*duration);
+
+        window.setTimeout(_ => {
+            leftEye_iris.style.transform  = `translateX(0) translateY(0)`;
+            rightEye_iris.style.transform = `translateX(0) translateY(0)`;
+            cleanupAnimation();
+        }, 1800*duration);
+    }
+
+    const eyesRoll = _ => {
+        prepareAnimation();
+        const ye = -leftEye.getBoundingClientRect().height/2+28;
+
+        leftEye_iris.style.transform  = `translateX(0) translateY(${ye}px)`;
+        rightEye_iris.style.transform = `translateX(0) translateY(${ye}px)`;
+
+        window.setTimeout(_ => {
+            leftEye_iris.style.transform  = `translateX(0) translateY(0)`;
+            rightEye_iris.style.transform = `translateX(0) translateY(0)`;
+            cleanupAnimation();
+        }, 1800*duration);
+    }
+
+    const eyesDrunk = _ => {
+        prepareAnimation();
+        const rect          = leftEye.getBoundingClientRect();
+        const xe = -rect.width/2+34;
+        const ye  = -rect.height/2+27;
+
+        leftEye_iris.style.transform  = `translateX(${xe}px) translateY(${ye}px)`;
+        rightEye_iris.style.transform = `translateX(20px) translateY(0)`;
+
+        window.setTimeout(_ => {
+            leftEye_iris.style.transform   = `translateX(0) translateY(0)`;
+            rightEye_iris.style.transform  = `translateX(0) translateY(0)`;
+            cleanupAnimation();
+        }, 1800*duration);
+    }
+
+    const leftListener  = eyeBinding('#leftEye');
+    const rightListener = eyeBinding('#rightEye');
+
+    document.onmousemove = evt => { // highlander pattern
+        leftListener(evt);
+        rightListener(evt);
+    };
+
+    const MenuProjector = (root) => {
+        root.style.cssText = "background-color: #e0e0e0; border-top: 1px solid black; position: absolute; width: 100%; height: 60";
+
+        let height = window.innerHeight;
+        root.style.top = (height - 61) + "px";
+
+        const blink = _ => {
+            leftEye_blink          .beginElement();
+            rightEye_blink         .beginElement();
+        };
+        const wink = _ => {
+            eval(
+                Math.round(Math.random()) ? 'leftEye_blink' : 'rightEye_blink'
+            ).beginElement(); // variable variablename with eval and shorthand
+        };
+        const squint = _ => {
+            eyesBackAndForth();
+            leftEye_squint_top     .beginElement();
+            leftEye_squint_bottom  .beginElement();
+            rightEye_squint_top    .beginElement();
+            rightEye_squint_bottom .beginElement();
+        };
+        const wideopen = _ => {
+            eyesRoll();
+            leftEye_open_top       .beginElement();
+            leftEye_open_bottom    .beginElement();
+            rightEye_open_top      .beginElement();
+            rightEye_open_bottom   .beginElement();
+        };
+        const drunk = _ => {
+            eyesDrunk();
+            leftEye_open_top       .beginElement();
+            leftEye_open_bottom    .beginElement();
+            rightEye_squint_top    .beginElement();
+            rightEye_squint_bottom .beginElement();
+        };
+        const setDuration = function() {
+            let newValue  = this.max - this.value + Number(this.min);
+            const blink   = newValue * 0.1;
+            const squint  = blink * 4.6;
+            duration      = blink * 2;
+
+            leftEye_blink          .setAttribute('dur', blink + 's');
+            rightEye_blink         .setAttribute('dur', blink + 's');
+
+            leftEye_squint_top     .setAttribute('dur', squint + 's');
+            leftEye_squint_bottom  .setAttribute('dur', squint + 's');
+            rightEye_squint_top    .setAttribute('dur', squint + 's');
+            rightEye_squint_bottom .setAttribute('dur', squint + 's');
+            leftEye_open_top       .setAttribute('dur', squint + 's');
+            leftEye_open_bottom    .setAttribute('dur', squint + 's');
+            rightEye_open_top      .setAttribute('dur', squint + 's');
+            rightEye_open_bottom   .setAttribute('dur', squint + 's');
+        };
+
+        /**
+         * Button projector
+         * @param root
+         * @param text
+         * @param fun
+         */
+        const ButtonProjector = (root, text, fun) => {
+            const button         = document.createElement("BUTTON");
+            button.style.cssText = "margin: 5px; display: inline-block; text-align: center; cursor: pointer; border: 1px solid grey; padding: 6px 12 px; border-radius: 4px; font-size: 32px; line-height: 1.4;";
+            button.innerHTML     = text;
+            button.addEventListener("click", fun);
+            root.appendChild(button);
+        };
+
+        const sliderProjector = (root, fn) => {
+            const slider         = document.createElement("INPUT");
+            slider.style.cssText = "margin-left: 12px;"
+            slider.type          = "range";
+            slider.oninput       = fn;
+            slider.min           = 1;
+            slider.max           = 18;
+            slider.step          = 0.1;
+            slider.value         = 14;
+            root.appendChild(slider);
+        };
+
+        ButtonProjector(root, "&#128512;", blink);
+        ButtonProjector(root, "&#128521;", wink);
+        ButtonProjector(root, "&#128529;", squint);
+        ButtonProjector(root, "&#128562;", wideopen);
+        ButtonProjector(root, "&#128565;", drunk);
+        sliderProjector(root, setDuration);
+    };
+
+    MenuProjector(document.getElementById('main'));
+</script>
+
+<div id="out"></div>
+</body>
+</html>
