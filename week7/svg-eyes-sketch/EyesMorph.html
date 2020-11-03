@@ -277,6 +277,10 @@
             const squint  = blink * 4.6;
             duration      = blink * 2;
 
+            //Alternative gegen Duplikation
+            //const reference = [leftEye_blink, rightEye_blink];
+            //reference.forEach(e => e.setAttribute('dur', blink + 's'));
+
             leftEye_blink          .setAttribute('dur', blink + 's');
             rightEye_blink         .setAttribute('dur', blink + 's');
 
